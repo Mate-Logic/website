@@ -1,0 +1,47 @@
+---
+const services = [
+  {
+    title: "Desarrollo Web & Mobile",
+    description: "Aplicaciones rápidas, escalables y atractivas utilizando tecnologías modernas como .NET, Astro, Tailwind CSS y Blazor.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>`
+  },
+  {
+    title: "Data Science & Bases de Datos",
+    description: "Arquitectura de datos eficiente en SQL y análisis robusto para ayudar a tu empresa a tomar decisiones basadas en información real.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"></path></svg>`
+  },
+  {
+    title: "Consultoría & Transformación",
+    description: "Para PyMEs y startups que buscan optimizar procesos, modernizar infraestructura o asesoramiento técnico experto.",
+    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>`
+  }
+];
+---
+
+<section id="servicios" class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Soluciones Tecnológicas Integrales</h2>
+      <p class="text-lg text-brand-blue/70">
+        Combinamos rigor técnico con un enfoque en resolver los problemas reales de tu negocio.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {services.map(service => (
+        <div class="group p-8 rounded-2xl bg-brand-cream border border-brand-teal/10 hover:border-brand-teal/30 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-teal/5 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-110"></div>
+          
+          <div class="w-14 h-14 bg-brand-blue text-brand-cream rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:bg-brand-teal transition-colors">
+            <Fragment set:html={service.icon} />
+          </div>
+          
+          <h3 class="text-xl font-bold text-brand-blue mb-3">{service.title}</h3>
+          <p class="text-brand-blue/70 leading-relaxed">
+            {service.description}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

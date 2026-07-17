@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-blue: #033748;
+  --color-brand-teal: #2f93a5;
+  --color-brand-green: #859f51;
+  --color-brand-brown: #825d40;
+  --color-brand-cream: #f6efe4;
+  --font-sans: "Montserrat", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-cream text-brand-blue font-sans antialiased;
+    scroll-behavior: smooth;
+  }
+}

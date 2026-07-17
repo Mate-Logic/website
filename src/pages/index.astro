@@ -1,17 +1,28 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import Philosophy from '../components/Philosophy.astro';
+import LocalIdentity from '../components/LocalIdentity.astro';
+import MateLab from '../components/MateLab.astro';
+import Team from '../components/Team.astro';
+import Solutions from '../components/Solutions.astro';
+import Footer from '../components/Footer.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Inicio">
+  <Header />
+  
+  <main>
+    <Hero />
+    <ServicesGrid />
+    <Philosophy />
+    <LocalIdentity />
+    <MateLab />
+    <Team />
+    <Solutions />
+  </main>
+  
+  <Footer />
+</Layout>
