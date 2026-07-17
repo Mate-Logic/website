@@ -1,4 +1,5 @@
 ---
+import chivilcoyImage from '../assets/images/chivilcoy.jpg';
 ---
 <section class="py-20 bg-brand-cream border-t border-brand-teal/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -7,7 +8,7 @@
         <div class="relative rounded-2xl overflow-hidden shadow-2xl group animate-scale-in">
           <!-- Chivilcoy landscape -->
           <div class="aspect-[4/3] bg-brand-blue relative">
-            <img src="/src/assets/images/chivilcoy.jpg" alt="Chivilcoy, Buenos Aires" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-overlay opacity-80 group-hover:opacity-100" />
+            <img src={chivilcoyImage.src} alt="Chivilcoy, Buenos Aires" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 mix-blend-overlay opacity-80 group-hover:opacity-100" />
             <div class="absolute inset-0 bg-gradient-to-t from-brand-blue via-transparent to-transparent"></div>
             <div class="absolute bottom-0 left-0 w-full p-8 flex flex-col justify-end">
               <div class="text-left text-brand-cream translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -30,10 +31,6 @@
         </p>
         
         <div class="grid grid-cols-2 gap-6">
-          <div class="border-l-4 border-brand-green pl-4">
-            <p class="text-3xl font-bold text-brand-blue">GMT-3</p>
-            <p class="text-sm text-brand-blue/60 mt-1">Zona Horaria Ideal (Américas)</p>
-          </div>
           <div class="border-l-4 border-brand-teal pl-4">
             <p class="text-3xl font-bold text-brand-blue">100%</p>
             <p class="text-sm text-brand-blue/60 mt-1">Compromiso y Transparencia</p>
