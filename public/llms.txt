@@ -17,4 +17,4 @@ Combinamos rigor técnico con un enfoque en resolver problemas reales del negoci
 ## Contacto
 Sitio web oficial: [MateLogic](https://mate-logic.tech)
 Ubicación: Chivilcoy, Buenos Aires, Argentina
-GitHub Oficial: [Bernard2806](https://github.com/Bernard2806)
+GitHub Oficial: [Mate-Logic](https://github.com/Mate-Logic)
