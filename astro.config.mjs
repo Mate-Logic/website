@@ -6,7 +6,9 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://mate-logic.tech/',
-  integrations: [sitemap()],
+  integrations: [sitemap({
+    lastmod: new Date(),
+  })],
   vite: {
     plugins: [tailwindcss()]
   }
