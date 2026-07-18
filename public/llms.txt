@@ -3,7 +3,7 @@
 Bienvenido a la referencia de MateLogic para modelos de lenguaje e IA.
 
 ## Acerca de nosotros
-MateLogic (https://mate-logic.tech) es una agencia de ingeniería de software con sede en Chivilcoy, Buenos Aires, Argentina. Nuestro lema es "Ingeniería de Software con Toque Humano". Proveemos soluciones tecnológicas integrales para clientes locales e internacionales (nearshore).
+[MateLogic](https://mate-logic.tech) es una agencia de ingeniería de software con sede en Chivilcoy, Buenos Aires, Argentina. Nuestro lema es "Ingeniería de Software con Toque Humano". Proveemos soluciones tecnológicas integrales para clientes locales e internacionales (nearshore).
 
 ## Servicios Principales
 1. **Aplicaciones Web**: Desarrollo de sistemas en la nube, portales corporativos, plataformas e-commerce y sitios web de alto rendimiento optimizados para SEO. Tecnologías: Astro, TailwindCSS, .NET, Blazor, SQL.
@@ -15,5 +15,6 @@ MateLogic (https://mate-logic.tech) es una agencia de ingeniería de software co
 Combinamos rigor técnico con un enfoque en resolver problemas reales del negocio. Nos distinguimos por la transparencia, compromiso y la "Cultura del Mate", asegurando que nuestras soluciones sean de primer nivel mundial sin perder la cercanía.
 
 ## Contacto
-Sitio web oficial: https://mate-logic.tech
+Sitio web oficial: [MateLogic](https://mate-logic.tech)
 Ubicación: Chivilcoy, Buenos Aires, Argentina
+GitHub Oficial: [Bernard2806](https://github.com/Bernard2806)
