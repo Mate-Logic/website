@@ -8,7 +8,7 @@
 [![PNPM](https://img.shields.io/badge/pnpm-9.0+-F69220?style=for-the-badge&logo=pnpm&logoColor=white)](https://pnpm.io/)
 [![Node.js](https://img.shields.io/badge/Node.js-%3E%3D22.12.0-68A063?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org/)
 
-Sitio web oficial de **MateLogic Interactive** ([mate-logic.tech](https://mate-logic.tech/)), empresa de desarrollo de software integral basada en Chivilcoy, Buenos Aires, Argentina. Especialistas en aplicaciones web, móviles (iOS/Android) y de escritorio.
+Sitio web oficial de **MateLogic** ([mate-logic.tech](https://mate-logic.tech/)), empresa de desarrollo de software integral basada en Chivilcoy, Buenos Aires, Argentina. Especialistas en aplicaciones web, móviles (iOS/Android) y de escritorio.
 
 ---
 
@@ -136,4 +136,4 @@ Visita el sitio publicado en: **[mate-logic.tech](https://mate-logic.tech/)**
 
 ## 📄 Licencia
 
-Desarrollado con ❤️ por **MateLogic Interactive**. Todos los derechos reservados.
+Desarrollado con ❤️ por **MateLogic**. Todos los derechos reservados.
