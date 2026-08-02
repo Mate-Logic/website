@@ -1,4 +1,4 @@
-# 🧉 MateLogic Interactive
+# 🧉 MateLogic
 
 > **Desarrollo de Software con toque humano, desde Chivilcoy al mundo.**
 
