@@ -136,4 +136,6 @@ Visita el sitio publicado en: **[mate-logic.tech](https://mate-logic.tech/)**
 
 ## 📄 Licencia
 
-Desarrollado con ❤️ por **MateLogic**. Todos los derechos reservados.
+Este proyecto está licenciado bajo la **GNU General Public License v3.0 (GPL-3.0)**. Consulta el archivo [LICENSE](LICENSE) para más información.
+
+Desarrollado con ❤️ por **MateLogic**.
