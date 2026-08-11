@@ -36,7 +36,22 @@ const currentYear = new Date().getFullYear();
           </li>
           <li class="flex items-center gap-3 text-sm text-brand-cream/80">
             <svg class="w-5 h-5 text-brand-green shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-            <a href="mailto:contacto@mate-logic.tech" class="hover:text-brand-green transition-colors text-[13px]">contacto@mate-logic.tech</a>
+            <div class="relative inline-block">
+              <button
+                id="copy-email-btn"
+                type="button"
+                class="flex items-center gap-2 text-[13px] text-brand-cream/80 hover:text-brand-green transition-colors cursor-pointer group focus:outline-none"
+                title="Copiar email al portapapeles"
+              >
+                <span>contacto@mate-logic.tech</span>
+                <svg class="w-4 h-4 text-brand-cream/60 group-hover:text-brand-green transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                </svg>
+              </button>
+              <span id="copy-toast" class="absolute -top-9 left-1/2 -translate-x-1/2 bg-brand-green text-brand-blue font-bold text-xs px-2.5 py-1 rounded shadow-lg opacity-0 pointer-events-none transition-all duration-300 transform translate-y-1 whitespace-nowrap">
+                ¡Copiado al portapapeles!
+              </span>
+            </div>
           </li>
         </ul>
       </div>
@@ -58,3 +73,26 @@ const currentYear = new Date().getFullYear();
     </div>
   </div>
 </footer>
+
+<script>
+  const copyBtn = document.getElementById('copy-email-btn');
+  const toast = document.getElementById('copy-toast');
+
+  if (copyBtn && toast) {
+    copyBtn.addEventListener('click', async () => {
+      const email = 'contacto@mate-logic.tech';
+      try {
+        await navigator.clipboard.writeText(email);
+        toast.classList.remove('opacity-0', 'translate-y-1', 'pointer-events-none');
+        toast.classList.add('opacity-100', 'translate-y-0');
+
+        setTimeout(() => {
+          toast.classList.remove('opacity-100', 'translate-y-0');
+          toast.classList.add('opacity-0', 'translate-y-1', 'pointer-events-none');
+        }, 2000);
+      } catch (err) {
+        console.error('Error al copiar al portapapeles:', err);
+      }
+    });
+  }
+</script>
