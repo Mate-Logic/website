@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logoImage from '../assets/images/mate-logic-logo-transparent.png';
+import isotipo from '../assets/images/isotipo.png';
 
 const links = [
   { href: '/#servicios', label: 'Servicios' },
@@ -8,12 +8,12 @@ const links = [
   { href: '/#nosotros', label: 'Nosotros' },
 ];
 ---
-<header id="site-header" class="group/header fixed w-full top-0 z-50 bg-brand-cream/90 backdrop-blur-md border-b border-transparent transition-[border-color,box-shadow] duration-300 data-[scrolled]:border-brand-teal/20 data-[scrolled]:shadow-sm">
+<header id="site-header" class="group/header fixed w-full top-0 z-50 bg-brand-cream/95 backdrop-blur-sm border-b border-transparent transition-[border-color,box-shadow] duration-300 data-[scrolled]:border-brand-teal/20 data-[scrolled]:shadow-sm">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-24 transition-[height] duration-300 group-data-[scrolled]/header:h-16">
-      <a href="/" class="flex items-center gap-3 group rounded-lg">
-        <Image src={logoImage} alt="" width={200} loading="eager" fetchpriority="high" class="h-16 w-auto transition-[height,transform] duration-300 ease-out group-hover:-rotate-3 group-data-[scrolled]/header:h-11" />
-        <span class="font-black text-2xl tracking-tighter text-brand-blue">MateLogic</span>
+    <div class="flex justify-between items-center h-20 transition-[height] duration-300 group-data-[scrolled]/header:h-16">
+      <a href="/" class="flex items-center gap-2.5 group rounded-lg">
+        <Image src={isotipo} alt="" width={96} densities={[1, 2]} loading="eager" class="h-12 w-auto transition-[height,transform] duration-300 ease-out group-hover:-rotate-6 group-data-[scrolled]/header:h-10" />
+        <span class="font-display font-bold text-2xl tracking-tight text-brand-blue">MateLogic</span>
       </a>
 
       <nav class="hidden md:flex gap-2" aria-label="Principal">
@@ -22,7 +22,7 @@ const links = [
         ))}
       </nav>
 
-      <a href="/#contacto" class="hidden md:inline-flex bg-brand-blue text-brand-cream hover:bg-brand-teal px-5 py-2.5 rounded-full text-sm font-semibold transition-colors duration-300">
+      <a href="/#contacto" class="hidden md:inline-flex btn btn-primary px-5! py-2.5! text-sm">
         Contanos tu proyecto
       </a>
 
@@ -43,7 +43,7 @@ const links = [
         {links.map(({ href, label }) => (
           <a href={href} class="block px-3 py-3 text-base font-medium text-brand-blue hover:bg-brand-teal/10 rounded-md">{label}</a>
         ))}
-        <a href="/#contacto" class="block mt-3 px-3 py-3 text-base font-semibold text-brand-cream bg-brand-blue hover:bg-brand-teal rounded-full text-center transition-colors">
+        <a href="/#contacto" class="block mt-3 px-3 py-3 text-base font-bold text-brand-cream bg-brand-blue hover:bg-brand-teal rounded-full text-center transition-colors">
           Contanos tu proyecto
         </a>
       </nav>
@@ -60,7 +60,7 @@ const links = [
     bottom: 0.25rem;
     height: 2px;
     border-radius: 2px;
-    background: var(--color-brand-green);
+    background: var(--color-brand-brown);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);

@@ -1,33 +1,31 @@
 ---
 ---
-<section id="contacto" class="py-24 bg-brand-blue relative overflow-hidden">
-  <div class="absolute inset-0">
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-teal/20 rounded-full blur-3xl opacity-50"></div>
-  </div>
-  
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-    <h2 class="text-4xl md:text-5xl font-bold text-brand-cream mb-6">Tu Idea, <span class="text-brand-green">Nuestra Ingeniería</span></h2>
-    <p class="text-xl text-brand-cream/80 mb-10 leading-relaxed max-w-2xl mx-auto">
-      Ya sea que necesites una plataforma escalable, consultoría técnica o transformar digitalmente tu negocio, estamos listos para tomar unos mates y charlarlo.
-    </p>
-    
-    <div class="bg-brand-cream rounded-2xl p-8 md:p-12 shadow-2xl text-left">
+<section id="contacto" class="py-20 md:py-28 bg-brand-blue text-brand-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20 items-start">
+    <div class="lg:sticky lg:top-28" data-reveal>
+      <h2 class="text-step-3 font-bold">Tu idea, nuestra ingeniería</h2>
+      <p class="mt-6 text-step-1 leading-snug text-brand-cream/85 max-w-[30rem]">
+        Ya sea una plataforma nueva, una consulta técnica o digitalizar algo que hoy hacés a mano, lo charlamos con unos mates.
+      </p>
+    </div>
+
+    <div class="bg-brand-cream text-brand-blue rounded-[1.75rem] p-6 sm:p-8 md:p-10" data-reveal style="--reveal-delay: 0.1s">
       <form id="contact-form" class="space-y-6" novalidate>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
-            <label for="name" class="block text-sm font-medium text-brand-blue mb-1">Nombre</label>
+            <label for="name" class="block font-bold mb-1.5">Nombre</label>
             <input type="text" id="name" name="name" required autocomplete="name" class="field" placeholder="Juan Pérez">
             <p class="field-error">Decinos cómo te llamás.</p>
           </div>
           <div>
-            <label for="email" class="block text-sm font-medium text-brand-blue mb-1">Email</label>
+            <label for="email" class="block font-bold mb-1.5">Email</label>
             <input type="email" id="email" name="email" required autocomplete="email" class="field" placeholder="juan@empresa.com">
-            <p class="field-error">Revisá el email, parece incompleto.</p>
+            <p class="field-error">Necesitamos un email válido para responderte.</p>
           </div>
         </div>
 
         <div>
-          <label for="service" class="block text-sm font-medium text-brand-blue mb-1">¿Qué necesitás?</label>
+          <label for="service" class="block font-bold mb-1.5">¿Qué necesitás?</label>
           <select id="service" name="service" class="field text-brand-blue">
             <option>Aplicación web</option>
             <option>Aplicación Android / iOS</option>
@@ -37,12 +35,12 @@
         </div>
 
         <div>
-          <label for="message" class="block text-sm font-medium text-brand-blue mb-1">Contanos sobre tu proyecto</label>
+          <label for="message" class="block font-bold mb-1.5">Contanos sobre tu proyecto</label>
           <textarea id="message" name="message" rows="4" required class="field" placeholder="Me gustaría construir..."></textarea>
           <p class="field-error">Contanos al menos en una línea qué tenés en mente.</p>
         </div>
 
-        <button type="submit" class="w-full bg-brand-blue text-brand-cream hover:bg-brand-teal font-bold text-lg py-4 rounded-full transition-colors flex justify-center items-center gap-2">
+        <button type="submit" class="btn btn-primary w-full text-lg py-4">
           <span data-label>Enviar por WhatsApp</span>
         </button>
         <p class="text-center text-sm text-brand-blue/60">Se abre WhatsApp con tu mensaje listo. Lo enviás vos cuando quieras.</p>

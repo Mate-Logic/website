@@ -1,47 +1,99 @@
 ---
+const steps = [
+  {
+    title: 'Charlamos',
+    text: 'Nos contás qué necesitás y cómo trabajás hoy. Sin compromiso y sin tecnicismos.',
+  },
+  {
+    title: 'Te proponemos un plan',
+    text: 'Recibís por escrito el alcance, los tiempos y el presupuesto, para decidir con toda la información.',
+  },
+  {
+    title: 'Desarrollamos con vos',
+    text: 'Vas probando avances reales y ajustamos el rumbo sobre la marcha, sin sorpresas al final.',
+  },
+  {
+    title: 'Entregamos y acompañamos',
+    text: 'Ponemos el sistema en marcha, te mostramos cómo usarlo y seguimos disponibles para lo que surja.',
+  },
+];
 ---
-<section class="py-24 bg-brand-blue text-brand-cream relative overflow-hidden">
-  <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#2f93a5 1px, transparent 1px); background-size: 30px 30px;"></div>
-  
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-      
-      <div>
-        <h2 class="text-4xl md:text-5xl font-bold mb-6">La "Cultura del Mate"</h2>
-        <div class="w-20 h-2 bg-brand-green mb-8 rounded-full"></div>
-        <p class="text-lg text-brand-cream/80 mb-6 leading-relaxed">
-          En Argentina, compartir un mate no es solo tomar una infusión; es abrir un espacio de confianza, de pausa para pensar, y de colaboración horizontal.
-        </p>
-        <p class="text-lg text-brand-cream/80 leading-relaxed mb-8">
-          En MateLogic aplicamos esta misma filosofía a la ingeniería de software. Creemos que los mejores productos no nacen solo de código limpio y arquitecturas robustas, sino de la comunicación abierta, la transparencia y el trabajo codo a codo con nuestros clientes.
-        </p>
-        <ul class="space-y-4">
-          <li class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal">✓</div>
-            <span class="font-medium">Colaboración Estrecha</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal">✓</div>
-            <span class="font-medium">Comunicación Transparente</span>
-          </li>
-          <li class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal">✓</div>
-            <span class="font-medium">Calidad Técnica (Arquitectura escalable)</span>
-          </li>
-        </ul>
-      </div>
+<section id="como-trabajamos" class="py-20 md:py-28 bg-brand-blue text-brand-cream">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid gap-14 lg:grid-cols-2 lg:gap-20">
+    <div class="lg:sticky lg:top-28 lg:self-start" data-reveal>
+      <h2 class="text-step-3 font-bold">La cultura del mate</h2>
+      <p class="mt-8 text-step-1 leading-snug text-brand-cream/90 max-w-[32rem]">
+        En Argentina, compartir un mate es hacer una pausa para escuchar y pensar juntos.
+      </p>
+      <p class="mt-5 text-brand-cream/75 max-w-[32rem]">
+        Así trabajamos en MateLogic: los buenos productos no salen solo de código limpio y arquitecturas sólidas, sino de hablar claro, mostrar cada avance y trabajar codo a codo con quien los va a usar.
+      </p>
+    </div>
 
-      <div class="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden bg-brand-cream/5 border border-brand-teal/20 flex items-center justify-center group">
-        <!-- Placeholder for a real image, using a stylized CSS graphic for MVP -->
-        <div class="absolute inset-0 bg-gradient-to-tr from-brand-blue to-brand-teal/40 mix-blend-overlay z-10 group-hover:opacity-75 transition-opacity"></div>
-        <div class="z-20 text-center p-8">
-          <div class="w-24 h-24 mx-auto border-4 border-brand-green rounded-full flex items-center justify-center mb-6">
-            <span class="text-4xl">🧉</span>
-          </div>
-          <h3 class="text-2xl font-bold text-brand-cream">Ingeniería + Calidez Humana</h3>
-        </div>
+    <div>
+      <h3 class="font-display text-step-2 font-bold mb-10">Cómo trabajamos</h3>
+      <div class="relative">
+        <span class="absolute left-[1.3125rem] top-2 bottom-2 w-0.5 bg-brand-cream/15" aria-hidden="true">
+          <span class="steps-progress absolute inset-0 bg-brand-green"></span>
+        </span>
+        <ol class="relative">
+        {steps.map((step, index) => (
+          <li class="step relative grid grid-cols-[2.75rem_1fr] gap-5 pb-10 last:pb-0">
+            <span class="step-number relative z-10 flex items-center justify-center w-11 h-11 rounded-full border-2 border-brand-green bg-brand-blue font-display font-bold text-lg">
+              {index + 1}
+            </span>
+            <div class="pt-1.5">
+              <p class="font-display text-step-1 font-bold leading-tight">{step.title}</p>
+              <p class="mt-2 text-brand-cream/75 max-w-[38ch]">{step.text}</p>
+            </div>
+          </li>
+        ))}
+        </ol>
       </div>
-
     </div>
   </div>
 </section>
+
+<style>
+  .steps-progress {
+    transform-origin: top;
+  }
+
+  /* La línea y los números avanzan con el scroll, como una ronda que va pasando de mano en mano */
+  @supports (animation-timeline: view()) {
+    @media (prefers-reduced-motion: no-preference) {
+      .steps-progress {
+        animation: grow linear both;
+        animation-timeline: view();
+        animation-range: entry 60% cover 65%;
+      }
+
+      .step-number {
+        animation: fill linear both;
+        animation-timeline: view();
+        animation-range: entry 100% cover 45%;
+      }
+    }
+  }
+
+  @keyframes grow {
+    from {
+      transform: scaleY(0);
+    }
+    to {
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes fill {
+    0%,
+    70% {
+      background: var(--color-brand-blue);
+      color: var(--color-brand-cream);
+    }
+    100% {
+      background: var(--color-brand-green);
+      color: var(--color-brand-blue);
+    }
+  }
+</style>

@@ -12,11 +12,29 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.google(),
-      name: 'Montserrat',
-      cssVariable: '--font-montserrat',
-      weights: ['400 900'],
+      name: 'Bricolage Grotesque',
+      cssVariable: '--font-bricolage',
+      weights: ['400 800'],
       styles: ['normal'],
       subsets: ['latin'],
+      fallbacks: ['sans-serif'],
+      options: {
+        experimental: {
+          variableAxis: {
+            opsz: [['12', '96']],
+            wdth: [['75', '100']],
+          },
+        },
+      },
+    },
+    {
+      provider: fontProviders.google(),
+      name: 'Atkinson Hyperlegible Next',
+      cssVariable: '--font-atkinson',
+      weights: ['400 700'],
+      styles: ['normal'],
+      subsets: ['latin'],
+      fallbacks: ['sans-serif'],
     },
   ],
   vite: {

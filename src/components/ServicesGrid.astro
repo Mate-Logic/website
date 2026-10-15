@@ -1,51 +1,57 @@
 ---
 const services = [
   {
-    title: "Aplicaciones Web",
-    description: "Desarrollo de sistemas en la nube, portales corporativos, e-commerce y sitios web de alto rendimiento optimizados para SEO.",
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"></path></svg>`
+    title: 'Aplicaciones web',
+    description: 'Sistemas en la nube, portales para tu empresa, tiendas online y sitios rápidos, preparados para aparecer en Google.',
+    examples: ['Sistemas de gestión', 'Tiendas online', 'Sitios institucionales'],
+    icon: `<path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>`,
   },
   {
-    title: "Aplicaciones Android / iOS",
-    description: "Creamos experiencias móviles nativas e híbridas que acompañan a tus usuarios a donde vayan, enfocándonos en rendimiento y usabilidad.",
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>`
+    title: 'Aplicaciones Android / iOS',
+    description: 'Apps nativas o híbridas que acompañan a tus clientes en el celular, rápidas y fáciles de usar.',
+    examples: ['Apps para clientes', 'Herramientas de campo', 'Reservas y turnos'],
+    icon: `<path d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>`,
   },
   {
-    title: "Aplicaciones de Escritorio",
-    description: "Software local robusto y a medida para Windows, macOS y Linux. Sistemas integrales diseñados para potenciar la gestión de tu empresa.",
-    icon: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>`
-  }
+    title: 'Aplicaciones de escritorio',
+    description: 'Programas a medida para Windows, macOS y Linux que ordenan la gestión diaria de tu empresa.',
+    examples: ['Facturación y stock', 'Administración interna', 'Integración con equipos'],
+    icon: `<path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`,
+  },
 ];
 ---
 
-<section id="servicios" class="py-20 bg-white">
+<section id="servicios" class="py-20 md:py-28 border-t border-brand-brown/25">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">Soluciones Tecnológicas Integrales</h2>
-      <p class="text-lg text-brand-blue/70">
-        Combinamos rigor técnico con un enfoque en resolver los problemas reales de tu negocio.
+    <div class="grid gap-6 lg:grid-cols-[1fr_1.4fr] lg:gap-16 mb-12 md:mb-16" data-reveal>
+      <h2 class="text-step-3 font-bold">Qué desarrollamos</h2>
+      <p class="text-step-1 leading-snug text-brand-blue/75 max-w-[36rem] lg:pt-2">
+        Software pensado para los problemas reales de tu negocio, con el cuidado técnico de un producto que va a durar.
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <ul class="border-t-2 border-brand-blue">
       {services.map((service, index) => (
-        <div 
-          class="group p-8 rounded-2xl bg-brand-cream border border-brand-teal/10 hover:border-brand-teal/30 hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+        <li
+          class="grid gap-4 md:grid-cols-[3rem_minmax(0,1fr)_minmax(0,1.1fr)_13rem] md:gap-10 md:items-start py-8 md:py-10 border-b border-brand-brown/25"
           data-reveal
-          style={`--reveal-delay: ${index * 0.12}s`}
+          style={`--reveal-delay: ${index * 0.08}s`}
         >
-          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-teal/5 rounded-bl-full -mr-8 -mt-8 transition-transform duration-700 group-hover:scale-125"></div>
-          
-          <div class="w-14 h-14 bg-brand-blue text-brand-cream rounded-xl flex items-center justify-center mb-6 shadow-md group-hover:bg-brand-teal group-hover:-translate-y-2 transition-all duration-300">
-            <Fragment set:html={service.icon} />
-          </div>
-          
-          <h3 class="text-xl font-bold text-brand-blue mb-3 group-hover:text-brand-teal transition-colors">{service.title}</h3>
-          <p class="text-brand-blue/70 leading-relaxed">
-            {service.description}
-          </p>
-        </div>
+          <span class="flex items-center justify-center w-12 h-12 rounded-full border-2 border-brand-blue text-brand-blue">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true">
+              <Fragment set:html={service.icon} />
+            </svg>
+          </span>
+          <h3 class="text-step-2 font-bold md:pt-1.5">{service.title}</h3>
+          <p class="text-brand-blue/80 md:pt-2 max-w-[38ch]">{service.description}</p>
+          <ul class="flex flex-wrap gap-2 md:flex-col md:items-end md:pt-2.5" aria-label={`Ejemplos de ${service.title.toLowerCase()}`}>
+            {service.examples.map((example) => (
+              <li class="text-step--1 px-3 py-1 rounded-full bg-brand-sand text-brand-blue/90">{example}</li>
+            ))}
+          </ul>
+        </li>
       ))}
-    </div>
+    </ul>
   </div>
 </section>
+

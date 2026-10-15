@@ -1,19 +1,35 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-blue: #033748;
-  --color-brand-teal: #2f93a5;
-  --color-brand-green: #859f51;
-  --color-brand-brown: #825d40;
-  --color-brand-cream: #f6efe4;
-  --font-sans: var(--font-montserrat), sans-serif;
+  /* Paleta tomada del logo */
+  --color-brand-blue: #033748;      /* petróleo: texto y bandas oscuras */
+  --color-brand-deep: #022936;      /* petróleo profundo: footer */
+  --color-brand-teal: #2f93a5;      /* bombilla: solo estados interactivos */
+  --color-brand-green: #859f51;     /* yerba: acento puntual */
+  --color-brand-yerba: #55692c;     /* yerba oscura: acento legible sobre crema */
+  --color-brand-brown: #825d40;     /* calabaza: estructura (líneas, números) */
+  --color-brand-cream: #f6efe4;     /* papel: fondo claro único */
+  --color-brand-sand: #ece2d0;      /* arena: separa secciones claras */
 
-  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --font-display: var(--font-bricolage), sans-serif;
+  --font-sans: var(--font-atkinson), sans-serif;
+
+  /* Escala tipográfica (cuarta justa, 1.333) */
+  --text-step--1: 0.875rem;
+  --text-step-0: 1.0625rem;
+  --text-step-1: 1.375rem;
+  --text-step-2: clamp(1.625rem, 1.3rem + 1.2vw, 2rem);
+  --text-step-3: clamp(2rem, 1.4rem + 2.4vw, 3rem);
+  --text-step-4: clamp(2.75rem, 1.6rem + 5vw, 5.5rem);
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-fade-in-up: fade-in-up 0.9s var(--ease-out-quint) both;
 
   @keyframes fade-in-up {
     from {
       opacity: 0;
-      transform: translateY(20px);
+      transform: translateY(16px);
     }
     to {
       opacity: 1;
@@ -26,11 +42,32 @@
   html {
     scroll-behavior: smooth;
     /* El header fijo no debe tapar el título de la sección al navegar por anclas */
-    scroll-padding-top: 6rem;
+    scroll-padding-top: 5rem;
   }
 
   body {
     @apply bg-brand-cream text-brand-blue font-sans antialiased;
+    font-size: var(--text-step-0);
+    line-height: 1.6;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    font-optical-sizing: auto;
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--color-brand-green);
+    color: var(--color-brand-blue);
   }
 
   :focus-visible {
@@ -39,13 +76,67 @@
   }
 }
 
+@layer components {
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    border-radius: 999px;
+    font-weight: 700;
+    transition:
+      background-color 0.25s,
+      color 0.25s,
+      border-color 0.25s;
+  }
+
+  .btn-primary {
+    background: var(--color-brand-blue);
+    color: var(--color-brand-cream);
+  }
+
+  .btn-primary:hover {
+    background: var(--color-brand-teal);
+  }
+
+  .btn-ghost {
+    border: 2px solid color-mix(in oklab, var(--color-brand-blue) 25%, transparent);
+    color: var(--color-brand-blue);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-brand-teal);
+    color: var(--color-brand-teal);
+  }
+
+  .btn-on-dark {
+    background: var(--color-brand-green);
+    color: var(--color-brand-blue);
+  }
+
+  .btn-on-dark:hover {
+    background: var(--color-brand-cream);
+  }
+
+  .btn-ghost-on-dark {
+    border: 2px solid color-mix(in oklab, var(--color-brand-cream) 35%, transparent);
+    color: var(--color-brand-cream);
+  }
+
+  .btn-ghost-on-dark:hover {
+    border-color: var(--color-brand-cream);
+    background: color-mix(in oklab, var(--color-brand-cream) 10%, transparent);
+  }
+}
+
 /* Aparición al entrar en pantalla. Solo se oculta si hay JS, así el contenido nunca queda invisible. */
 .js [data-reveal] {
   opacity: 0;
   transform: translateY(24px);
   transition:
-    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity 0.8s var(--ease-out-quint),
+    transform 0.8s var(--ease-out-quint);
   transition-delay: var(--reveal-delay, 0s);
 }
 
@@ -63,6 +154,7 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0s !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0s !important;

@@ -1,32 +1,27 @@
 ---
+const skills = ['.NET', 'C#', 'PHP', 'SQL', 'Arquitectura web'];
 ---
-<section id="nosotros" class="py-20 bg-white">
+<section id="nosotros" class="py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 class="text-3xl md:text-4xl font-bold text-brand-blue mb-4">El Equipo</h2>
-      <p class="text-lg text-brand-blue/70">
-        Profesionales apasionados por la tecnología, impulsando la Cultura del Mate en cada línea de código.
-      </p>
-    </div>
+    <h2 class="text-step-3 font-bold" data-reveal>Quién está detrás</h2>
 
-    <div class="flex flex-col md:flex-row items-center justify-center gap-12 max-w-4xl mx-auto">
-      <div class="w-48 h-48 md:w-64 md:h-64 relative rounded-full overflow-hidden border-4 border-brand-cream shadow-xl flex-shrink-0">
-        <!-- Using Bernardo's GitHub avatar as requested -->
-        <img src="https://github.com/Bernard2806.png?size=400" alt="Bernardo Andrés González Erramuspe" loading="lazy" class="w-full h-full object-cover" />
+    <div class="mt-12 grid gap-10 md:grid-cols-[auto_1fr] md:gap-14 items-start" data-reveal style="--reveal-delay: 0.1s">
+      <!-- Monograma provisorio hasta tener una foto real -->
+      <div class="w-36 h-36 md:w-48 md:h-48 rounded-full bg-brand-brown text-brand-cream flex items-center justify-center ring-8 ring-brand-sand" aria-hidden="true">
+        <span class="font-display font-extrabold text-5xl md:text-6xl tracking-tight">BG</span>
       </div>
-      
-      <div class="text-center md:text-left">
-        <h3 class="text-2xl font-bold text-brand-blue">Bernardo Andrés González Erramuspe</h3>
-        <p class="text-brand-blue font-semibold mb-4">Fundador & Desarrollador Web Full Stack</p>
-        <p class="text-brand-blue/70 mb-6 leading-relaxed">
-          Especializado en .NET, PHP, C# y bases de datos SQL. Con una sólida experiencia en arquitecturas escalables y un enfoque en resolver problemas complejos con soluciones elegantes. En MateLogic, me aseguro de que cada proyecto reciba atención personalizada y el más alto estándar de calidad técnica.
+
+      <div>
+        <h3 class="text-step-2 font-bold">Bernardo Andrés González Erramuspe</h3>
+        <p class="mt-1 font-bold text-brand-yerba">Fundador y desarrollador full stack</p>
+        <p class="mt-5 text-brand-blue/80 max-w-[60ch]">
+          Trabaja con .NET, PHP, C# y bases de datos SQL, con experiencia en arquitecturas que crecen junto con el negocio. En MateLogic se ocupa de que cada proyecto tenga atención personal y un estándar técnico alto.
         </p>
-        <div class="flex gap-4 justify-center md:justify-start">
-          <span class="px-3 py-1 bg-brand-blue/5 text-brand-blue text-sm rounded-md font-medium">.NET</span>
-          <span class="px-3 py-1 bg-brand-blue/5 text-brand-blue text-sm rounded-md font-medium">C#</span>
-          <span class="px-3 py-1 bg-brand-blue/5 text-brand-blue text-sm rounded-md font-medium">SQL</span>
-          <span class="px-3 py-1 bg-brand-blue/5 text-brand-blue text-sm rounded-md font-medium">Arquitectura Web</span>
-        </div>
+        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Tecnologías">
+          {skills.map((skill) => (
+            <li class="text-step--1 px-3 py-1 rounded-full border border-brand-blue/20">{skill}</li>
+          ))}
+        </ul>
       </div>
     </div>
   </div>
