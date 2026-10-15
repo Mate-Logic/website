@@ -1,20 +1,34 @@
-# MateLogic - Empresa de Desarrollo de Software
+# MateLogic
 
-Bienvenido a la referencia de MateLogic para modelos de lenguaje e IA.
+> MateLogic es un estudio de desarrollo de software en Chivilcoy, provincia de Buenos Aires, Argentina. Desarrolla software a medida (aplicaciones web, móviles Android / iOS y de escritorio) para empresas de la zona y de cualquier lugar. Trabaja en persona en Chivilcoy y alrededores, y a distancia por videollamada y WhatsApp.
 
-## Acerca de nosotros
-[MateLogic](https://mate-logic.tech) es una agencia de ingeniería de software con sede en Chivilcoy, Buenos Aires, Argentina. Nuestro lema es "Ingeniería de Software con Toque Humano". Proveemos soluciones tecnológicas integrales para clientes locales e internacionales (nearshore).
+Lema: "Tu idea, nuestra ingeniería". Cada proyecto empieza con una charla, sin compromiso y sin tecnicismos.
 
-## Servicios Principales
-1. **Aplicaciones Web**: Desarrollo de sistemas en la nube, portales corporativos, plataformas e-commerce y sitios web de alto rendimiento optimizados para SEO. Tecnologías: Astro, TailwindCSS, .NET, Blazor, SQL.
-2. **Aplicaciones Android / iOS**: Desarrollo de experiencias móviles nativas e híbridas.
-3. **Aplicaciones de Escritorio**: Software local robusto y a medida para entornos Windows, macOS y Linux. Sistemas integrales diseñados para potenciar la gestión empresarial.
-4. **Data Science y Arquitectura**: Soluciones para toma de decisiones y modernización de infraestructura para startups y PyMEs.
+## Servicios
 
-## Filosofía
-Combinamos rigor técnico con un enfoque en resolver problemas reales del negocio. Nos distinguimos por la transparencia, compromiso y la "Cultura del Mate", asegurando que nuestras soluciones sean de primer nivel mundial sin perder la cercanía.
+- **Aplicaciones web**: sistemas en la nube, portales para empresas, tiendas online y sitios rápidos preparados para aparecer en Google. Ejemplos: sistemas de gestión, tiendas online, sitios institucionales.
+- **Aplicaciones Android / iOS**: apps nativas o híbridas para clientes y equipos de trabajo. Ejemplos: apps para clientes, herramientas de campo, reservas y turnos.
+- **Aplicaciones de escritorio**: programas a medida para Windows, macOS y Linux. Ejemplos: facturación y stock, administración interna, integración con equipos.
+
+## Cómo trabajamos
+
+1. **Charlamos**: el cliente cuenta qué necesita y cómo trabaja hoy.
+2. **Te proponemos un plan**: alcance, tiempos y presupuesto por escrito.
+3. **Desarrollamos con vos**: avances que el cliente puede probar, con ajustes sobre la marcha.
+4. **Entregamos y acompañamos**: puesta en marcha, capacitación y soporte posterior.
+
+## Equipo
+
+- **Bernardo Andrés González Erramuspe**, fundador y desarrollador full stack. Tecnologías: .NET, C#, PHP, SQL y arquitectura web.
 
 ## Contacto
-Sitio web oficial: [MateLogic](https://mate-logic.tech)
-Ubicación: Chivilcoy, Buenos Aires, Argentina
-GitHub Oficial: [Mate-Logic](https://github.com/Mate-Logic)
+
+- [Formulario de contacto](https://mate-logic.tech/#contacto): arma un mensaje de WhatsApp con nombre, email, tipo de proyecto y descripción.
+- Email: contacto@mate-logic.tech
+- Ubicación: Chivilcoy, Buenos Aires, Argentina
+
+## Enlaces
+
+- [Sitio web](https://mate-logic.tech/)
+- [Catálogo de software open source](https://opensource.mate-logic.tech/): herramientas y librerías que MateLogic publica como código abierto.
+- [GitHub de MateLogic](https://github.com/Mate-Logic)

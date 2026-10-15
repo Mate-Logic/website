@@ -1,14 +1,7 @@
+# Todos los buscadores y agentes de IA pueden leer el sitio, para que MateLogic aparezca en sus respuestas.
+# Content-Signal declara el uso permitido del contenido: https://contentsignals.org/
 User-agent: *
-Allow: /
-
-# Permitir explícitamente a los bots de IA para que MateLogic aparezca en respuestas
-User-agent: GPTBot
-Allow: /
-
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Google-Extended
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
 Sitemap: https://mate-logic.tech/sitemap-index.xml

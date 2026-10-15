@@ -10,23 +10,29 @@
     </div>
 
     <div class="bg-brand-cream text-brand-blue rounded-[1.75rem] p-6 sm:p-8 md:p-10" data-reveal style="--reveal-delay: 0.1s">
-      <form id="contact-form" class="space-y-6" novalidate>
+      <form
+        id="contact-form"
+        class="space-y-6"
+        novalidate
+        toolname="contactar_matelogic"
+        tooldescription="Prepara una consulta para MateLogic, estudio de desarrollo de software en Chivilcoy, Argentina. Arma un mensaje de WhatsApp con los datos del interesado; la persona lo revisa y lo envía."
+      >
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label for="name" class="block font-bold mb-1.5">Nombre</label>
-            <input type="text" id="name" name="name" required autocomplete="name" class="field" placeholder="Juan Pérez">
+            <input type="text" id="name" name="name" required autocomplete="name" toolparamdescription="Nombre de la persona que hace la consulta" class="field" placeholder="Juan Pérez">
             <p class="field-error">Decinos cómo te llamás.</p>
           </div>
           <div>
             <label for="email" class="block font-bold mb-1.5">Email</label>
-            <input type="email" id="email" name="email" required autocomplete="email" class="field" placeholder="juan@empresa.com">
+            <input type="email" id="email" name="email" required autocomplete="email" toolparamdescription="Email de contacto para la respuesta" class="field" placeholder="juan@empresa.com">
             <p class="field-error">Necesitamos un email válido para responderte.</p>
           </div>
         </div>
 
         <div>
           <label for="service" class="block font-bold mb-1.5">¿Qué necesitás?</label>
-          <select id="service" name="service" class="field text-brand-blue">
+          <select id="service" name="service" toolparamdescription="Tipo de software que necesita" class="field text-brand-blue">
             <option>Aplicación web</option>
             <option>Aplicación Android / iOS</option>
             <option>Aplicación de escritorio</option>
@@ -36,7 +42,7 @@
 
         <div>
           <label for="message" class="block font-bold mb-1.5">Contanos sobre tu proyecto</label>
-          <textarea id="message" name="message" rows="4" required class="field" placeholder="Me gustaría construir..."></textarea>
+          <textarea id="message" name="message" rows="4" required toolparamdescription="Descripción del proyecto: qué problema quiere resolver y cómo trabaja hoy" class="field" placeholder="Me gustaría construir..."></textarea>
           <p class="field-error">Contanos al menos en una línea qué tenés en mente.</p>
         </div>
 
@@ -87,13 +93,16 @@
   const form = document.getElementById('contact-form') as HTMLFormElement | null;
 
   if (form) {
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', (e: SubmitEvent & { agentInvoked?: boolean; respondWith?: (response: Promise<unknown>) => void }) => {
       e.preventDefault();
 
       if (!form.checkValidity()) {
         // Muestra los errores de todos los campos, aunque la persona no los haya tocado
         form.classList.add('was-submitted');
         form.querySelector<HTMLElement>(':invalid')?.focus();
+        if (e.agentInvoked && e.respondWith) {
+          e.respondWith(Promise.reject(new Error('Faltan datos: nombre, email válido y descripción del proyecto son obligatorios.')));
+        }
         return;
       }
 
@@ -111,7 +120,14 @@ ${data.get('message')}`;
         setTimeout(() => (label.textContent = 'Enviar por WhatsApp'), 2500);
       }
 
-      window.open(`https://wa.me/5492346409771?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
+      const whatsappUrl = `https://wa.me/5492346409771?text=${encodeURIComponent(text)}`;
+
+      // Si un agente de IA envió el formulario (WebMCP), le devolvemos el enlace para que la persona lo abra
+      if (e.agentInvoked && e.respondWith) {
+        e.respondWith(Promise.resolve({ mensaje: 'Consulta lista. Abrí el enlace para enviarla por WhatsApp.', whatsappUrl }));
+      }
+
+      window.open(whatsappUrl, '_blank', 'noopener');
     });
   }
 </script>

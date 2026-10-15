@@ -9,11 +9,67 @@ import Software from '../components/Software.astro';
 import Team from '../components/Team.astro';
 import Solutions from '../components/Solutions.astro';
 import Footer from '../components/Footer.astro';
+
+const site = Astro.site!.href;
+
+// Datos estructurados para que buscadores y asistentes de IA entiendan quiénes somos y qué ofrecemos
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'ProfessionalService',
+      '@id': `${site}#organizacion`,
+      name: 'MateLogic',
+      url: site,
+      logo: new URL('/apple-touch-icon.png', site).href,
+      image: new URL('/og-image.png', site).href,
+      slogan: 'Tu idea, nuestra ingeniería',
+      description: 'Estudio de desarrollo de software en Chivilcoy, Buenos Aires. Desarrolla aplicaciones web, móviles y de escritorio a medida para empresas de la zona y de cualquier lugar.',
+      email: 'contacto@mate-logic.tech',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Chivilcoy',
+        addressRegion: 'Buenos Aires',
+        addressCountry: 'AR',
+      },
+      areaServed: [
+        { '@type': 'City', name: 'Chivilcoy' },
+        { '@type': 'Country', name: 'Argentina' },
+      ],
+      founder: {
+        '@type': 'Person',
+        name: 'Bernardo Andrés González Erramuspe',
+        jobTitle: 'Fundador y desarrollador full stack',
+        knowsAbout: ['.NET', 'C#', 'PHP', 'SQL', 'Arquitectura web'],
+      },
+      knowsAbout: ['Desarrollo de software a medida', 'Aplicaciones web', 'Aplicaciones móviles', 'Aplicaciones de escritorio', 'Software open source'],
+      sameAs: ['https://github.com/Mate-Logic', 'https://opensource.mate-logic.tech/'],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Servicios de desarrollo de software',
+        itemListElement: [
+          { name: 'Aplicaciones web', description: 'Sistemas en la nube, portales para empresas, tiendas online y sitios institucionales.' },
+          { name: 'Aplicaciones Android / iOS', description: 'Apps nativas o híbridas para clientes, herramientas de campo, reservas y turnos.' },
+          { name: 'Aplicaciones de escritorio', description: 'Programas a medida para Windows, macOS y Linux: facturación, stock y administración interna.' },
+        ].map((service) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', ...service } })),
+      },
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${site}#sitio`,
+      url: site,
+      name: 'MateLogic',
+      inLanguage: 'es-AR',
+      publisher: { '@id': `${site}#organizacion` },
+    },
+  ],
+};
 ---
 
-<Layout title="Inicio" description="MateLogic - Empresa de desarrollo de software en Chivilcoy. Creamos aplicaciones web, móviles y de escritorio de alta calidad con un toque humano.">
+<Layout title="Inicio" description="MateLogic es un estudio de desarrollo de software en Chivilcoy, Buenos Aires. Hacemos aplicaciones web, móviles y de escritorio a medida para empresas de la zona y de cualquier lugar.">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(structuredData)} />
   <Header />
-  
+
   <main>
     <Hero />
     <ServicesGrid />
@@ -23,6 +79,6 @@ import Footer from '../components/Footer.astro';
     <Team />
     <Solutions />
   </main>
-  
+
   <Footer />
 </Layout>
