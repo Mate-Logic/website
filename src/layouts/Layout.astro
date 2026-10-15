@@ -1,4 +1,5 @@
 ---
+import { Font } from 'astro:assets';
 import '../styles/global.css';
 
 interface Props {
@@ -16,7 +17,8 @@ const canonicalURL = Astro.url.href;
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content={description} />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#033748" />
 		<meta name="keywords" content="empresa de software, desarrollo de software, software chivilcoy, aplicaciones web, aplicaciones móviles, aplicaciones de escritorio, programación, soluciones digitales, MateLogic">
 		<link rel="icon" href="/favicon.ico" sizes="any" />
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -31,13 +33,31 @@ const canonicalURL = Astro.url.href;
 		<meta name="twitter:title" content={`${title} | MateLogic - Desarrollo de Software Chivilcoy`} />
 		<meta name="twitter:description" content={description} />
 		<meta name="twitter:image" content={new URL(image, Astro.url).href} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+		<Font cssVariable="--font-montserrat" preload />
+		<script is:inline>document.documentElement.classList.add('js');</script>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} | MateLogic - Desarrollo de Software Chivilcoy</title>
 	</head>
 	<body>
 		<slot />
+		<script>
+			const targets = document.querySelectorAll<HTMLElement>('[data-reveal]');
+
+			if ('IntersectionObserver' in window) {
+				const observer = new IntersectionObserver(
+					(entries) => {
+						for (const entry of entries) {
+							if (!entry.isIntersecting) continue;
+							entry.target.classList.add('is-visible');
+							observer.unobserve(entry.target);
+						}
+					},
+					{ rootMargin: '0px 0px -10% 0px' },
+				);
+				targets.forEach((el) => observer.observe(el));
+			} else {
+				targets.forEach((el) => el.classList.add('is-visible'));
+			}
+		</script>
 	</body>
 </html>

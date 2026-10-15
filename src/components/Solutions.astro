@@ -12,58 +12,108 @@
     </p>
     
     <div class="bg-brand-cream rounded-2xl p-8 md:p-12 shadow-2xl text-left">
-      <form id="contact-form" class="space-y-6">
+      <form id="contact-form" class="space-y-6" novalidate>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div>
             <label for="name" class="block text-sm font-medium text-brand-blue mb-1">Nombre</label>
-            <input type="text" id="name" class="w-full px-4 py-3 rounded-lg border border-brand-teal/20 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-all" placeholder="Juan Pérez">
+            <input type="text" id="name" name="name" required autocomplete="name" class="field" placeholder="Juan Pérez">
+            <p class="field-error">Decinos cómo te llamás.</p>
           </div>
           <div>
             <label for="email" class="block text-sm font-medium text-brand-blue mb-1">Email</label>
-            <input type="email" id="email" class="w-full px-4 py-3 rounded-lg border border-brand-teal/20 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-all" placeholder="juan@empresa.com">
+            <input type="email" id="email" name="email" required autocomplete="email" class="field" placeholder="juan@empresa.com">
+            <p class="field-error">Revisá el email, parece incompleto.</p>
           </div>
         </div>
-        
+
         <div>
-          <label for="service" class="block text-sm font-medium text-brand-blue mb-1">¿Qué necesitas?</label>
-          <select id="service" class="w-full px-4 py-3 rounded-lg border border-brand-teal/20 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-all text-brand-blue">
-            <option>Desarrollo de Software a Medida</option>
-            <option>Consultoría y Arquitectura</option>
-            <option>Análisis de Datos / BI</option>
-            <option>Otro</option>
+          <label for="service" class="block text-sm font-medium text-brand-blue mb-1">¿Qué necesitás?</label>
+          <select id="service" name="service" class="field text-brand-blue">
+            <option>Aplicación web</option>
+            <option>Aplicación Android / iOS</option>
+            <option>Aplicación de escritorio</option>
+            <option>Todavía no lo sé, quiero asesoramiento</option>
           </select>
         </div>
-        
+
         <div>
           <label for="message" class="block text-sm font-medium text-brand-blue mb-1">Contanos sobre tu proyecto</label>
-          <textarea id="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-brand-teal/20 focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-all" placeholder="Me gustaría construir..."></textarea>
+          <textarea id="message" name="message" rows="4" required class="field" placeholder="Me gustaría construir..."></textarea>
+          <p class="field-error">Contanos al menos en una línea qué tenés en mente.</p>
         </div>
-        
-        <button type="submit" class="w-full bg-brand-blue text-brand-cream hover:bg-brand-teal font-bold text-lg py-4 rounded-lg transition-all shadow-md hover:shadow-lg transform hover:-translate-y-1 flex justify-center items-center gap-2">
-          Enviar Consulta
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+
+        <button type="submit" class="w-full bg-brand-blue text-brand-cream hover:bg-brand-teal font-bold text-lg py-4 rounded-full transition-colors flex justify-center items-center gap-2">
+          <span data-label>Enviar por WhatsApp</span>
         </button>
-        <p class="text-center text-xs text-brand-blue/50 mt-4">Tus datos están seguros. Priorizamos la seguridad y privacidad (Design by Security).</p>
+        <p class="text-center text-sm text-brand-blue/60">Se abre WhatsApp con tu mensaje listo. Lo enviás vos cuando quieras.</p>
       </form>
     </div>
   </div>
 </section>
 
+<style>
+  .field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid color-mix(in oklab, var(--color-brand-teal) 25%, transparent);
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .field:focus {
+    outline: none;
+    border-color: var(--color-brand-teal);
+    box-shadow: 0 0 0 3px color-mix(in oklab, var(--color-brand-teal) 25%, transparent);
+  }
+
+  .field-error {
+    display: none;
+    margin-top: 0.375rem;
+    font-size: 0.875rem;
+    color: #a3402a;
+  }
+
+  .field:user-invalid,
+  .was-submitted .field:invalid {
+    border-color: #a3402a;
+  }
+
+  .field:user-invalid + .field-error,
+  .was-submitted .field:invalid + .field-error {
+    display: block;
+  }
+</style>
+
 <script>
-  const form = document.getElementById('contact-form') as HTMLFormElement;
+  const form = document.getElementById('contact-form') as HTMLFormElement | null;
+
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      
-      const name = (document.getElementById('name') as HTMLInputElement)?.value || '';
-      const email = (document.getElementById('email') as HTMLInputElement)?.value || '';
-      const service = (document.getElementById('service') as HTMLSelectElement)?.value || '';
-      const message = (document.getElementById('message') as HTMLTextAreaElement)?.value || '';
-      
-      const text = `¡Hola Bernardo! Soy ${name} (${email}).\n\nEstoy interesado en: ${service}\n\nMensaje:\n${message}`;
-      const encodedText = encodeURIComponent(text);
-      
-      window.open(`https://wa.me/5492346409771?text=${encodedText}`, '_blank');
+
+      if (!form.checkValidity()) {
+        // Muestra los errores de todos los campos, aunque la persona no los haya tocado
+        form.classList.add('was-submitted');
+        form.querySelector<HTMLElement>(':invalid')?.focus();
+        return;
+      }
+
+      const data = new FormData(form);
+      const text = `¡Hola Bernardo! Soy ${data.get('name')} (${data.get('email')}).
+
+Estoy interesado en: ${data.get('service')}
+
+Mensaje:
+${data.get('message')}`;
+
+      const label = form.querySelector<HTMLElement>('[data-label]');
+      if (label) {
+        label.textContent = 'Abriendo WhatsApp…';
+        setTimeout(() => (label.textContent = 'Enviar por WhatsApp'), 2500);
+      }
+
+      window.open(`https://wa.me/5492346409771?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
     });
   }
 </script>

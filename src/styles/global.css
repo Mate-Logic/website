@@ -6,12 +6,9 @@
   --color-brand-green: #859f51;
   --color-brand-brown: #825d40;
   --color-brand-cream: #f6efe4;
-  --font-sans: "Montserrat", sans-serif;
+  --font-sans: var(--font-montserrat), sans-serif;
 
-  --animate-fade-in-up: fade-in-up 0.8s ease-out forwards;
-  --animate-float: float 6s ease-in-out infinite;
-  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-scale-in: scale-in 0.5s ease-out forwards;
+  --animate-fade-in-up: fade-in-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 
   @keyframes fade-in-up {
     from {
@@ -23,31 +20,55 @@
       transform: translateY(0);
     }
   }
-
-  @keyframes float {
-    0%, 100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes scale-in {
-    from {
-      opacity: 0;
-      transform: scale(0.95);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+    /* El header fijo no debe tapar el título de la sección al navegar por anclas */
+    scroll-padding-top: 6rem;
+  }
+
   body {
     @apply bg-brand-cream text-brand-blue font-sans antialiased;
-    scroll-behavior: smooth;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-teal);
+    outline-offset: 3px;
+  }
+}
+
+/* Aparición al entrar en pantalla. Solo se oculta si hay JS, así el contenido nunca queda invisible. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+}
+
+.js [data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
+
+  .js [data-reveal] {
+    transform: none;
   }
 }
