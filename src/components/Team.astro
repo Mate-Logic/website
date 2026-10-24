@@ -2,7 +2,18 @@
 import { Image } from 'astro:assets';
 import foto from '../assets/images/bernardo.jpeg';
 
-const skills = ['.NET', 'C#', 'PHP', 'SQL', 'Arquitectura web'];
+const skills = ['C# / .NET', 'Blazor', 'PHP', 'Java', 'React', 'Astro', 'TypeScript', 'Python', 'SQL Server', 'MySQL', 'Azure', 'Linux'];
+
+const now = [
+  { title: 'Formación', text: 'Licenciatura en Sistemas de Información en la UNLu y Diplomatura en Ciberseguridad en la UNTREF.' },
+  { title: 'Sector público', text: 'Desarrolla el frontend del proyecto de la UNLu con el Municipio de Luján que digitaliza la gestión municipal.' },
+  { title: 'Comunidad', text: 'Vicepresidente de CODES, el centro de estudiantes de Sistemas de la UNLu, para el que creó la plataforma de apuntes y el sitio oficial.' },
+];
+
+const links = [
+  { href: 'https://github.com/Bernard2806', label: 'GitHub' },
+  { href: 'https://www.linkedin.com/in/bernardo-gonzalez-erramuspe/', label: 'LinkedIn' },
+];
 ---
 <section id="nosotros" class="py-20 md:py-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -14,12 +25,35 @@ const skills = ['.NET', 'C#', 'PHP', 'SQL', 'Arquitectura web'];
       <div>
         <h3 class="text-step-2 font-bold">Bernardo Andrés González Erramuspe</h3>
         <p class="mt-1 font-bold text-brand-yerba">Fundador y desarrollador full stack</p>
-        <p class="mt-5 text-brand-blue/80 max-w-[60ch]">
-          Trabaja con .NET, PHP, C# y bases de datos SQL, con experiencia en arquitecturas que crecen junto con el negocio. En MateLogic se ocupa de que cada proyecto tenga atención personal y un estándar técnico alto.
-        </p>
-        <ul class="mt-6 flex flex-wrap gap-2" aria-label="Tecnologías">
+        <div class="mt-5 space-y-4 text-brand-blue/80 max-w-[60ch]">
+          <p>
+            Programa desde la escuela técnica, donde se recibió de Técnico en Informática y construyó sus primeros sistemas reales: reservas de salones y gestión escolar para la E.E.S.T. N°1 de Chivilcoy, y el sistema de gestión de Bomberos Voluntarios de Chivilcoy, donde trabajó como desarrollador y líder de equipo.
+          </p>
+          <p>
+            Trabaja con C# y .NET, con certificaciones en .NET y Azure, además de PHP, Java y React, y se mueve con soltura en Linux e infraestructura. En MateLogic acompaña cada proyecto de punta a punta, desde la primera charla hasta el soporte, y publica herramientas de código abierto, como una librería .NET disponible en NuGet.
+          </p>
+        </div>
+
+        <dl class="mt-8 grid gap-6 sm:grid-cols-3 border-t border-brand-brown/25 pt-8">
+          {now.map(({ title, text }) => (
+            <div>
+              <dt class="font-display text-step-1 font-bold">{title}</dt>
+              <dd class="mt-1 text-brand-blue/75">{text}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <ul class="mt-8 flex flex-wrap gap-2" aria-label="Tecnologías">
           {skills.map((skill) => (
             <li class="text-step--1 px-3 py-1 rounded-full border border-brand-blue/20">{skill}</li>
+          ))}
+        </ul>
+
+        <ul class="mt-6 flex flex-wrap gap-x-6 gap-y-2" aria-label="Perfiles">
+          {links.map(({ href, label }) => (
+            <li>
+              <a href={href} target="_blank" rel="noopener noreferrer me" class="font-bold text-brand-blue underline decoration-brand-brown/40 underline-offset-4 hover:text-brand-teal hover:decoration-brand-teal transition-colors">{label}</a>
+            </li>
           ))}
         </ul>
       </div>

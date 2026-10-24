@@ -9,8 +9,11 @@ import Software from '../components/Software.astro';
 import Team from '../components/Team.astro';
 import Solutions from '../components/Solutions.astro';
 import Footer from '../components/Footer.astro';
+import { getImage } from 'astro:assets';
+import foto from '../assets/images/bernardo.jpeg';
 
 const site = Astro.site!.href;
+const fotoFundador = await getImage({ src: foto, width: 400, format: 'jpg' });
 
 // Datos estructurados para que buscadores y asistentes de IA entiendan quiénes somos y qué ofrecemos
 const structuredData = {
@@ -40,7 +43,15 @@ const structuredData = {
         '@type': 'Person',
         name: 'Bernardo Andrés González Erramuspe',
         jobTitle: 'Fundador y desarrollador full stack',
-        knowsAbout: ['.NET', 'C#', 'PHP', 'SQL', 'Arquitectura web'],
+        image: new URL(fotoFundador.src, site).href,
+        knowsAbout: ['C#', '.NET', 'Blazor', 'PHP', 'Java', 'React', 'Astro', 'TypeScript', 'Python', 'SQL Server', 'MySQL', 'Azure', 'Linux', 'Infraestructura', 'Ciberseguridad'],
+        alumniOf: { '@type': 'EducationalOrganization', name: 'E.E.S.T. N°1 "Mariano Moreno" de Chivilcoy' },
+        affiliation: [
+          { '@type': 'CollegeOrUniversity', name: 'Universidad Nacional de Luján' },
+          { '@type': 'CollegeOrUniversity', name: 'Universidad Nacional de Tres de Febrero' },
+        ],
+        memberOf: { '@type': 'Organization', name: 'CODES, Centro Organizado de Estudiantes de Sistemas (UNLu)', url: 'https://www.codesunlu.tech/' },
+        sameAs: ['https://github.com/Bernard2806', 'https://www.linkedin.com/in/bernardo-gonzalez-erramuspe/'],
       },
       knowsAbout: ['Desarrollo de software a medida', 'Aplicaciones web', 'Aplicaciones móviles', 'Aplicaciones de escritorio', 'Software open source'],
       sameAs: ['https://github.com/Mate-Logic', 'https://opensource.mate-logic.tech/'],
