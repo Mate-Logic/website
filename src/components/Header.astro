@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import isotipo from '../assets/images/isotipo.png';
+import isotipo from '../assets/images/isotipo.svg';
 
 const links = [
   { href: '/#servicios', label: 'Servicios' },
@@ -12,7 +12,7 @@ const links = [
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20 transition-[height] duration-300 group-data-[scrolled]/header:h-16">
       <a href="/" class="flex items-center gap-2.5 group rounded-lg">
-        <Image src={isotipo} alt="" width={96} densities={[1, 2]} loading="eager" class="h-12 w-auto transition-[height,transform] duration-300 ease-out group-hover:-rotate-6 group-data-[scrolled]/header:h-10" />
+        <Image src={isotipo} alt="" loading="eager" class="h-12 w-auto transition-[height,transform] duration-300 ease-out group-hover:-rotate-6 group-data-[scrolled]/header:h-10" />
         <span class="font-display font-bold text-2xl tracking-tight text-brand-blue">MateLogic</span>
       </a>
 
