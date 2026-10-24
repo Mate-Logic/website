@@ -19,7 +19,7 @@ Lema: "Tu idea, nuestra ingeniería". Cada proyecto empieza con una charla, sin 
 
 ## Equipo
 
-- **Bernardo Andrés González Erramuspe**, fundador y desarrollador full stack. Técnico en Informática (E.E.S.T. N°1 de Chivilcoy), estudia la Licenciatura en Sistemas de Información en la UNLu y una Diplomatura en Ciberseguridad en la UNTREF. Es vicepresidente de CODES, el centro de estudiantes de Sistemas de la UNLu, y desarrolla el frontend del proyecto de la UNLu con el Municipio de Luján que digitaliza la gestión municipal. Antes trabajó como desarrollador y líder de equipo en el sistema de gestión de Bomberos Voluntarios de Chivilcoy. Certificado en .NET y Azure. Tecnologías: C# / .NET, Blazor, PHP, Java, React, Astro, TypeScript, Python, SQL Server, MySQL, Azure y Linux. [GitHub](https://github.com/Bernard2806) · [LinkedIn](https://www.linkedin.com/in/bernardo-gonzalez-erramuspe/)
+- **Bernardo Andrés González Erramuspe**, fundador y desarrollador full stack. Técnico en Informática (E.E.S.T. N°1 de Chivilcoy), estudia la Licenciatura en Sistemas de Información en la UNLu y una Diplomatura en Ciberseguridad en la UNTREF. Es vicepresidente de CODES, el centro de estudiantes de Sistemas de la UNLu, y desarrolla el frontend del proyecto de la UNLu con el Municipio de Luján que digitaliza la gestión municipal. En el sistema de gestión de Bomberos Voluntarios de Chivilcoy hizo su pasantía como desarrollador web (2024) y en 2025, ad honorem, lideró al equipo de alumnos que continuó el proyecto. Certificado en .NET y Azure. Tecnologías: C# / .NET, Blazor, PHP, Java, React, Astro, TypeScript, Python, SQL Server, MySQL, Azure y Linux. [GitHub](https://github.com/Bernard2806) · [LinkedIn](https://www.linkedin.com/in/bernardo-gonzalez-erramuspe/)
 
 ## Contacto
 
