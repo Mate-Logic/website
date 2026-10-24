@@ -1,4 +1,7 @@
 ---
+import { Image } from 'astro:assets';
+import foto from '../assets/images/bernardo.jpeg';
+
 const skills = ['.NET', 'C#', 'PHP', 'SQL', 'Arquitectura web'];
 ---
 <section id="nosotros" class="py-20 md:py-28">
@@ -6,10 +9,7 @@ const skills = ['.NET', 'C#', 'PHP', 'SQL', 'Arquitectura web'];
     <h2 class="text-step-3 font-bold" data-reveal>Quién está detrás</h2>
 
     <div class="mt-12 grid gap-10 md:grid-cols-[auto_1fr] md:gap-14 items-start" data-reveal style="--reveal-delay: 0.1s">
-      <!-- Monograma provisorio hasta tener una foto real -->
-      <div class="w-36 h-36 md:w-48 md:h-48 rounded-full bg-brand-brown text-brand-cream flex items-center justify-center ring-8 ring-brand-sand" aria-hidden="true">
-        <span class="font-display font-extrabold text-5xl md:text-6xl tracking-tight">BG</span>
-      </div>
+      <Image src={foto} alt="Retrato de Bernardo González Erramuspe" width={192} densities={[1, 2]} class="w-36 h-36 md:w-48 md:h-48 rounded-full object-cover bg-white ring-8 ring-brand-sand" />
 
       <div>
         <h3 class="text-step-2 font-bold">Bernardo Andrés González Erramuspe</h3>
