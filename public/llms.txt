@@ -24,6 +24,7 @@ Lema: "Tu idea, nuestra ingeniería". Cada proyecto empieza con una charla, sin 
 ## Contacto
 
 - [Formulario de contacto](https://mate-logic.tech/#contacto): arma un mensaje de WhatsApp con nombre, email, tipo de proyecto y descripción.
+- Teléfono (llamadas): 2346 409771 (+54 9 2346 409771)
 - Email: contacto@mate-logic.tech
 - Ubicación: Chivilcoy, Buenos Aires, Argentina
 

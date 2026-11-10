@@ -21,6 +21,7 @@ C#, .NET, Blazor, PHP, Java, React, Astro, TypeScript, Python, SQL Server, MySQL
 - Sitio web: https://mate-logic.tech/
 - Resumen para agentes: https://mate-logic.tech/llms.txt
 - Catálogo ARD: https://mate-logic.tech/.well-known/ai-catalog.json
+- Teléfono: 2346 409771 (+54 9 2346 409771)
 - Contacto: contacto@mate-logic.tech
 `;
 
