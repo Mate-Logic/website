@@ -4,4 +4,7 @@ User-agent: *
 Content-Signal: search=yes, ai-input=yes, ai-train=yes
 Allow: /
 
+# Agentic Resource Discovery (ARD)
+Agentmap: https://mate-logic.tech/.well-known/ai-catalog.json
+
 Sitemap: https://mate-logic.tech/sitemap-index.xml

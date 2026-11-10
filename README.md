@@ -31,6 +31,7 @@ Sitio web oficial de **MateLogic** ([mate-logic.tech](https://mate-logic.tech/))
 - **Rendimiento Extremo**: Construido con **Astro 7**, logrando tiempos de carga ultrarrápidos y optimización SEO integral.
 - **Sitemap & SEO**: Generación automática de mapa del sitio (`@astrojs/sitemap`) y metadatos Open Graph/Twitter Cards preconfigurados.
 - **Arquitectura de Componentes**: Separación limpia en componentes interactivos y modulares (`Hero`, `ServicesGrid`, `Philosophy`, `LocalIdentity`, `Software`, `Team`, `Solutions`).
+- **Descubrimiento para agentes**: Catálogos en `/.well-known/`, `llms.txt`, enlaces RFC 8288 y una representación Markdown de la página principal.
 
 ---
 
